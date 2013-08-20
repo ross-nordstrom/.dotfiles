@@ -1,0 +1,24 @@
+" show $ where we are changing
+:set cpoptions+=$
+
+" syntax highlighting
+:syntax on
+
+" tabs
+set expandtab
+set autoindent
+set shiftwidth=2
+set softtabstop=2
+
+" autoreload .vimrc
+augroup myvimrchooks
+    au!
+    autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
+
+" Use the same symbols as TextMate for tabstops and EOLs
+" set listchars=tab:▸\ ,eol:¬
+
+" Always center the cursor
+nnoremap j jzz
+nnoremap k kzz

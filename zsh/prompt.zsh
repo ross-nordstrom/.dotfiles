@@ -1,0 +1,43 @@
+autoload colors && colors
+# cheers, @ehrenmurdick
+# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
+
+if (( $+commands[git] ))
+then
+  git="$commands[git]"
+else
+  git="/usr/bin/git"
+fi
+
+# get the name of the branch we are on
+function git_prompt_info() {
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
+# Show dirty if files modified or untracked files added
+git_dirty() {
+  st=$($git status 2>/dev/null | tail -n 1)
+  if [[ $st == "" ]]
+  then
+    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  else
+    if [[ "$st" =~ ^nothing && "$st" =~ clean$ ]]; then
+      echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+    else
+      echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+    fi
+  fi
+}
+
+# Prompt
+PROMPT='%{$fg[white]%}☁  %{$fg[blue]%}%c %{$fg[red]%}$(git_prompt_info)%{$reset_color%}: '
+
+# Right Prompt
+RPROMPT='%{$fg_bold[black]%}%n@%m%{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX=" "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} ☢"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
