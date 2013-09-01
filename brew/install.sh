@@ -41,28 +41,6 @@ brew install tree
 brew install webkit2png
 brew install zopfli
 
-# Install native apps
-brew tap phinze/homebrew-cask
-brew install brew-cask
-
-function installcask() {
-  brew cask install "${@}" 2> /dev/null
-}
-
-installcask dropbox
-installcask google-chrome
-installcask google-chrome-canary
-installcask imagealpha
-installcask imageoptim
-installcask iterm2
-installcask macvim
-installcask sublime-text
-installcask the-unarchiver
-installcask tor-browser
-installcask transmission
-installcask virtualbox
-installcask vlc
-
 # Remove outdated versions from the cellar
 brew cleanup
 
