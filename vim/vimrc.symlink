@@ -80,4 +80,4 @@ autocmd VimEnter * wincmd p
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
+let g:NERDTreeDirArrows=0

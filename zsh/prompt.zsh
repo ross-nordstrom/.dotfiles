@@ -18,12 +18,12 @@ function git_prompt_info() {
 
 # Show dirty if files modified or untracked files added
 git_dirty() {
-  st=$($git status 2>/dev/null | tail -n 1)
+  st=`$git status 2>/dev/null | tail -n 1`
   if [[ $st == "" ]]
   then
     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
   else
-    if [[ "$st" =~ ^nothing && "$st" =~ clean$ ]]; then
+    if [[ "$st" =~ ^nothing && "$st" =~ clean ]]; then
       echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
     else
       echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
