@@ -7,33 +7,40 @@ filetype off
 " show $ where we are changing
 :set cpoptions+=$
 
+" change <leader> key
+let mapleader=","
+set timeoutlen=250
+
+" disable bell
+set vb t_vb="
+
 " syntax highlighting
-filetype plugin on  
-filetype indent on  
+filetype plugin on
+filetype indent on
 syntax on
 
-"Write the old file out when switching between files.  
+"Write the old file out when switching between files.
 set autowrite
 
-"Show command in bottom right portion of the screen  
-set showcmd  
+"Show command in bottom right portion of the screen
+set showcmd
 
-"Show lines numbers  
+"Show lines numbers
 set number
 
-"Better line wrapping   
-set wrap  
-set textwidth=79  
-set formatoptions=qrn1  
-  
-"Set incremental searching"  
-set incsearch  
+"Better line wrapping
+set wrap
+set textwidth=79
+set formatoptions=qrn1
 
-"Highlight searching  
-set hlsearch  
+"Set incremental searching"
+set incsearch
 
-" case insensitive search  
-set ignorecase  
+"Highlight searching
+set hlsearch
+
+" case insensitive search
+set ignorecase
 set smartcase
 
 " tabs
@@ -73,6 +80,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'mattn/emmet-vim'
 
 " Nerdtree
 autocmd vimenter * NERDTree
