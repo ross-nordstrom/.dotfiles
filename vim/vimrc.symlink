@@ -1,8 +1,40 @@
+" be iMproved
+set nocompatible
+
+" required for vundle
+filetype off
+
 " show $ where we are changing
 :set cpoptions+=$
 
 " syntax highlighting
-:syntax on
+filetype plugin on  
+filetype indent on  
+syntax on
+
+"Write the old file out when switching between files.  
+set autowrite
+
+"Show command in bottom right portion of the screen  
+set showcmd  
+
+"Show lines numbers  
+set number
+
+"Better line wrapping   
+set wrap  
+set textwidth=79  
+set formatoptions=qrn1  
+  
+"Set incremental searching"  
+set incsearch  
+
+"Highlight searching  
+set hlsearch  
+
+" case insensitive search  
+set ignorecase  
+set smartcase
 
 " tabs
 set expandtab
@@ -25,3 +57,27 @@ augroup END
 " Always center the cursor
 nnoremap j jzz
 nnoremap k kzz
+
+" vundle settings
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Bundles
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/syntastic'
+
+" Nerdtree
+autocmd vimenter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
