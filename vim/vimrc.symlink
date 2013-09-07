@@ -9,7 +9,7 @@ filetype off
 
 " change <leader> key
 let mapleader=","
-set timeoutlen=250
+set timeoutlen=400
 
 " disable bell
 set vb t_vb="
