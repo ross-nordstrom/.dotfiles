@@ -61,10 +61,6 @@ augroup END
 " Use the same symbols as TextMate for tabstops and EOLs
 " set listchars=tab:▸\ ,eol:¬
 
-" Always center the cursor
-nnoremap j jzz
-nnoremap k kzz
-
 " vundle settings
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
