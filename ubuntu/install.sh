@@ -10,14 +10,42 @@ else
   exit 0
 fi
 
+set -e
+
+# Set up the time zone
+
+echo "America/Los_Angeles" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+
 # Update Ubuntu
 
 echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 apt-get update
+apt-get upgrade
+
+# Create a username
+
+while true; do
+    read -p "Create a new username: " user
+    case $user in
+        "" ) echo "Please enter a new username";;
+        * ) echo "Creating $user"; break;;
+    esac
+done
+
+# Add the username
+
+adduser $user
+usermod -a -G sudo $user
+su $user
 
 # Install git
 
 apt-get install -y git
+
+# Install vim
+
+apt-get install -y vim
 
 # Install node.js dependencies
 
