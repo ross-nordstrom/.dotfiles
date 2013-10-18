@@ -4,12 +4,15 @@
 
 set -e
 
+# Get the dirname
+__dirname=$(dirname $0)
+
 # Install OS specific code
 while true; do
   read -p "What operating system are you on (osx, ubuntu)? " os
   case $os in
-    "osx" ) echo "bootstrapping osx..."; sh osx/bootstrap; break;;
-    "ubuntu" ) echo "bootstrapping ubuntu..."; sh ubuntu/bootstrap; break;;
+    "osx" ) echo "bootstrapping osx..."; sh $__dirname/osx/bootstrap; break;;
+    "ubuntu" ) echo "bootstrapping ubuntu..."; sh $__dirname/ubuntu/bootstrap; break;;
     * ) echo "please enter a valid operating system"
   esac
 done

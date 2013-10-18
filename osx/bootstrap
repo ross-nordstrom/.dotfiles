@@ -6,18 +6,16 @@
 # using Homebrew.
 
 # Only run if on a Mac
-if [ "$(uname -s)" -n "Darwin" ]
-then
+if [ "$(uname -s)" != "Darwin" ]; then
   exit 0
 fi
 
 # Check for Homebrew
 # TODO: automate homebrew installation with: https://gist.github.com/trinitronx/6217746
 
-then
-  echo "  x You should probably install Homebrew first:"
-  echo "    https://github.com/mxcl/homebrew/wiki/installation"
-  exit
+if test ! $(which brew); then
+  echo "installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 fi
 
 # Install GNU core utilities (those that come with OS X are outdated)
@@ -40,6 +38,7 @@ brew install homebrew/dupes/grep
 
 # Install other useful binaries
 
+brew install zsh
 brew install ack
 brew install git
 brew install node
@@ -49,6 +48,37 @@ brew install webkit2png
 brew install zopfli
 brew install ffmpeg
 brew install graphicsmagick
+brew install mackup
+brew install hub
+brew install python
+brew install sshfs
+
+# Install homebrew-cask
+
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+# Install osx apps
+
+brew cask install --appdir="/Applications" \
+adium \
+one-password \
+arq \
+firefox \
+google-chrome \
+nv-alt \
+skype \
+dropbox \
+vlc \
+spotify \
+virtualbox \
+f-lux \
+transmission \
+transmit \
+screenflick \
+iterm2 \
+app-cleaner \
+vagrant
 
 # Remove outdated versions from the cellar
 
