@@ -78,7 +78,9 @@ transmit \
 screenflick \
 iterm2 \
 app-cleaner \
-vagrant
+vagrant \
+sublime-text \
+rescue-time
 
 # Remove outdated versions from the cellar
 
