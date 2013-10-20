@@ -41,7 +41,6 @@ brew install homebrew/dupes/grep
 brew install zsh
 brew install ack
 brew install git
-brew install node
 brew install rename
 brew install tree
 brew install webkit2png
@@ -80,7 +79,8 @@ iterm2 \
 app-cleaner \
 vagrant \
 sublime-text \
-rescue-time
+rescue-time \
+flash
 
 # Remove outdated versions from the cellar
 

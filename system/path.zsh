@@ -9,8 +9,3 @@ export GEM_PATH=$HOME/.gem
 if test “${PS1+set}”; then
   CDPATH=:"..:~:~/Projects";
 fi
-
-# Only set this if we haven't set $EDITOR up somewhere else previously.
-if [[ "$EDITOR" == "" ]] ; then
-  export EDITOR='vi'
-fi
