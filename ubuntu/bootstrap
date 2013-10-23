@@ -33,6 +33,9 @@ apt-get update
 apt-get install -y nodejs
 
 # Install Rails
+# [Setup Ruby on Rails on Ubuntu 13.10](http://gorails.com/setup/ubuntu/13.10)
+apt-get update
+apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
 
 
 exit 0
