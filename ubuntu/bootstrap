@@ -28,6 +28,13 @@ cd git-going
 chmod +x git-aliases && ./git-aliases
 cd
 
+# Install F.lux - save your eyes
+### NOTE: Doesn't support 13.10 yet, install straight from:
+###	http://ppa.launchpad.net/kilian/f.lux/ubuntu/pool/main/f/fluxgui/fluxgui_1.1.8_all.deb
+# add-apt-repository ppa:kilian/f.lux
+# apt-get update
+# apt-get -y install fluxgui
+
 # Install Node.js
 apt-get update
 apt-get install -y python-software-properties python g++ make
