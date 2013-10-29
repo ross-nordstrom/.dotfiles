@@ -68,8 +68,18 @@ apt-get update
 apt-get install -y postgresql-common -t saucy
 apt-get install -y postgresql-9.2 libpq-dev
 
-# Nvidia drivers
-apt-get install -y nvidia-current
+# Redis
+cd ~/Downloads
+wget http://download.redis.io/releases/redis-2.6.16.tar.gz
+tar xzf redis-2.6.16.tar.gz
+cd redis-2.6.16
+make
+cd
+
+# Variety wallpapers
+add-apt-repository ppa:peterlevi/ppa
+apt-get update
+apt-get install variety
 
 # Oh yea, login to Heroku
 heroku login
