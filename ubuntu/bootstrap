@@ -28,6 +28,9 @@ cd git-going
 chmod +x git-aliases && ./git-aliases
 cd
 
+# Install Heroku Toolbelt
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
 # Install F.lux - save your eyes
 ### NOTE: Doesn't support 13.10 yet, install straight from:
 ###	http://ppa.launchpad.net/kilian/f.lux/ubuntu/pool/main/f/fluxgui/fluxgui_1.1.8_all.deb
@@ -68,5 +71,7 @@ apt-getupdate
 apt-get install -y postgresql-common -t saucy
 apt-get install -y postgresql-9.2 libpq-dev
 
+# Oh yea, login to Heroku
+heroku login
 
 exit 0
