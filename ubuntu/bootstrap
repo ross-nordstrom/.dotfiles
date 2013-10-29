@@ -12,21 +12,18 @@ fi
 
 set -e
 
-# # Install git
-# apt-get install -y git
-# 
-# # Install vim
-# apt-get install -y vim
+apt-get update
+apt-get upgrade -y
+apt-get update
+
+# Install git
+apt-get install -y git
+
+# Install vim
+apt-get install -y vim
 
 # Install HTOP memory visualization/mgmt
 apt-get install -y htop
-
-# Configure git and git aliases
-cd ~/Development/misc
-git clone git@github.com:ross-nordstrom/git-going.git
-cd git-going
-chmod +x git-aliases && ./git-aliases
-cd
 
 # Install Heroku Toolbelt
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
@@ -52,14 +49,14 @@ apt-get install -y nodejs
    
    # Install RVM
    apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-   curl -L https://get.rvm.io | bash -s stable
-   source ~/.rvm/scripts/rvm
-   rvm install 2.0.0-p247
-   rvm use 2.0.0-p247 --default
-   ruby -v
-
-   # Install Rails
-   gem install rails
+#   curl -L https://get.rvm.io | bash -s stable
+#   source ~/.rvm/scripts/rvm
+#   rvm install 2.0.0-p247
+#   rvm use 2.0.0-p247 --default
+#   ruby -v
+#
+#   # Install Rails
+#   gem install rails
 
    # I needed this for Capybara to work (bundle update/install)
    apt-get install -y qt4-dev-tools libqt4-dev libqt4-core libqt4-gui
@@ -67,7 +64,7 @@ apt-get install -y nodejs
 # Install PostgreSQL
 sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
 wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
-apt-getupdate
+apt-get update
 apt-get install -y postgresql-common -t saucy
 apt-get install -y postgresql-9.2 libpq-dev
 
@@ -77,4 +74,7 @@ apt-get install -y nvidia-current
 # Oh yea, login to Heroku
 heroku login
 
+echo 'now install Rails on your own!'
 exit 0
+
+
