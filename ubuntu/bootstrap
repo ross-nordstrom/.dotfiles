@@ -71,6 +71,9 @@ apt-getupdate
 apt-get install -y postgresql-common -t saucy
 apt-get install -y postgresql-9.2 libpq-dev
 
+# Nvidia drivers
+apt-get install -y nvidia-current
+
 # Oh yea, login to Heroku
 heroku login
 
