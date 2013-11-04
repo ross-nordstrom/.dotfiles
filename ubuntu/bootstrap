@@ -81,6 +81,11 @@ add-apt-repository ppa:peterlevi/ppa
 apt-get update
 apt-get install variety
 
+# Install Oracle JDK 7
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java7-installer
+
 # Oh yea, login to Heroku
 heroku login
 
